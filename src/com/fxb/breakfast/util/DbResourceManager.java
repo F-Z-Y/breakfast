@@ -9,10 +9,10 @@ import java.sql.Statement;
 import java.util.Properties;
 
 public class DbResourceManager {
-   private static final String JDBC_URL="jdbc:mysql://localhost:3306/breakfast?characterEncoding=utf8";
+   private static final String JDBC_URL="jdbc:mysql://lefteye.cn:3306/breakfast?characterEncoding=utf8";
    private static final String JDBC_DRV="com.mysql.jdbc.Driver";
-   private static final String JDBC_USER="root";
-   private static final String JDBC_PWD="123456";
+   private static final String JDBC_USER="admin";
+   private static final String JDBC_PWD="yadong";
    private DbResourceManager() {
 		throw new AssertionError();
 	}

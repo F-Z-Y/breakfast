@@ -15,6 +15,7 @@ public class AdduserAction implements Action{
 
 	@Override
 	public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//int id = Integer.valueOf(req.getParameter("user"));
 		return new ActionResult(new ResultContent("addUser.jsp"), ResultType.Forward);
 	}
 
