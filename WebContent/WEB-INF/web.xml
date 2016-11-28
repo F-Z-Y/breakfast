@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>breakfast</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Delete</servlet-name>
+    <servlet-class>com.fxb.breakfast.model.Delete</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Recovery</servlet-name>
+    <servlet-class>com.fxb.breakfast.model.Recovery</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteSeller</servlet-name>
+    <servlet-class>com.fxb.breakfast.model.DeleteSeller</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>RecoverySeller</servlet-name>
+    <servlet-class>com.fxb.breakfast.model.RecoverySeller</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DeleteUser</servlet-name>
+    <servlet-class>com.fxb.breakfast.model.DeleteUser</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>RecoveryUser</servlet-name>
+    <servlet-class>com.fxb.breakfast.model.RecoveryUser</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AddSeller</servlet-name>
+    <servlet-class>com.fxb.breakfast.model.AddSeller</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>AddSeller</servlet-name>
+    <url-pattern>/add_seller</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RecoveryUser</servlet-name>
+    <url-pattern>/recovery_user</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteUser</servlet-name>
+    <url-pattern>/delete_user</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RecoverySeller</servlet-name>
+    <url-pattern>/recovery_seller</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteSeller</servlet-name>
+    <url-pattern>/del_seller</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Recovery</servlet-name>
+    <url-pattern>/recovery_good</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Delete</servlet-name>
+    <url-pattern>/delete_good</url-pattern>
+  </servlet-mapping>
+</web-app>
