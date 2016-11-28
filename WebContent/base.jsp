@@ -254,6 +254,9 @@
 							class="menu-icon fa fa-desktop"></i> <span class="menu-text">
 								用户 </span> <i class="menu-expand"></i></a>
 						<ul class="submenu">
+							<li><a href="<%=request.getContextPath()%>/admin/adduser.do">
+									<span class="menu-text">添加用户</span>
+							</a></li>
 							<li><a href="<%=request.getContextPath()%>/admin/user.do">
 									<span class="menu-text">用户管理</span>
 							</a></li>

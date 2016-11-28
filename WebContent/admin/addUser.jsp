@@ -9,20 +9,20 @@
 	</style>
 </rapid:override>
 <rapid:override name="page-title">
-	<li><i class="fa fa-home"></i> <a href="#">商铺</a></li>
-	<li class="active">商铺添加</li>
+	<li><i class="fa fa-home"></i> <a href="#">用户</a></li>
+	<li class="active">用户添加</li>
 </rapid:override>
 
 <rapid:override name="header-title">
- 商铺添加
+ 用户添加
 </rapid:override>
 
 <rapid:override name="content">
 	<div class="col-xs-12 col-md-12">
 		<div class="well with-header">
-			<div class="header bg-blue">商铺添加</div>
+			<div class="header bg-blue">用户添加</div>
 			<div class="btn-group">
-                <a href="<%=request.getContextPath()%>/admin/seller.do" class="btn btn-default btn-add">
+                <a href="<%=request.getContextPath()%>/admin/user.do" class="btn btn-default btn-add">
                     <i class="fa fa-chevron-left"></i> 返回
                 </a>
             </div>
@@ -31,18 +31,18 @@
                 <!--第1行-->
                 <div class="row">
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">商铺名称:<span style="color:#f00">*</span></label>
+                        <label for="name" class="col-sm-2 control-label">用户名称:<span style="color:#f00">*</span></label>
                         <div class="col-sm-7">
-                            <input maxlength="50" type="text" placeholder="请输入商铺名称" name="name" class="form-control" id="name"/>
+                            <input maxlength="50" type="text" placeholder="请输入用户名称" name="name" class="form-control" id="name"/>
                         </div>
-                        <label id="name-error" class="error" for="name">商铺名称不能为空</label>
+                        <label id="name-error" class="error" for="name">用户名称不能为空</label>
                     </div>
                     <div class="form-group">
-                        <label for="address" class="col-sm-2 control-label">商铺地址:<span style="color:#f00">*</span></label>
+                        <label for="address" class="col-sm-2 control-label">用户地址:<span style="color:#f00">*</span></label>
                         <div class="col-sm-7">
-                            <input maxlength="50" type="text" placeholder="请输入商铺地址" name="address" class="form-control" id="address"/>
+                            <input maxlength="50" type="text" placeholder="请输入用户地址" name="address" class="form-control" id="address"/>
                         </div>
-                        <label id="address-error" class="error" for="address">商铺地址不能为空</label>
+                        <label id="address-error" class="error" for="address">用户地址不能为空</label>
                     </div>
                     <div class="form-group">
                         <label for="phone" class="col-sm-2 control-label">联系方式:<span style="color:#f00">*</span></label>
@@ -51,17 +51,10 @@
                         </div>
                         <label id="phone-error" class="error" for="phone">联系方式不能为空</label>
                     </div>
-                    <div class="form-group">
-                        <label for="introduction" class="col-sm-2 control-label">商铺简介:<span style="color:#f00">*</span></label>
-                        <div class="col-sm-7">
-                        	<textarea class="form-control" id="introduction" name="introduction" placeholder="请输入商铺简介(150字以内)" maxlength="150"></textarea>
-                        </div>
-                        <label id="introduction-error" class="error" for="introduction">商铺简介不能为空</label>
-                    </div>
-                </div>
+                                    </div>
                 <div class="row" style="margin-top:50px;">
                     <div class="col-md-1 col-md-offset-5">
-                        <button class="btn btn-primary btn-lg" id="seller_set" type="button">
+                        <button class="btn btn-primary btn-lg" id="user_set" type="button">
                             <i class="fa fa-save"></i>保存
                         </button>
                     </div>
@@ -75,41 +68,40 @@
 	<script>
 		$(function(){
 			 var post = false;
-	            $("#seller_set").click(function(){
+	            $("#user_set").click(function(){
 	                post = true;
 	                var name = get_data($("#name"),false,true,'name-error');
 	                var address = get_data($("#address"),false,true,'address-error');
 	                var phone = get_data($("#phone"),false,true,'phone-error');
-	                var introduction = get_data($("#introduction"),false,true,'introduction-error');
 	                if(!post){
 	                    return;
 	                }
 	                $(this).attr('disabled',true);
 	                $.ajax({
 	                    type: "post",
-	                    url: '<%=request.getContextPath()%>/add_seller',
+	                    url: '<%=request.getContextPath()%>/add_user',
 	                    data: {
 	                        name:name,
 	                        address:address,
 	                        phone:phone,
-	                        introduction:introduction,
 	                    },
 	                    success: function (data) {
 	                    	data = eval("("+data+")");
 	                        if (data.code==0) {
 	                            Notify("ok", 'top-right', '3000', 'success', 'fa-check');
 	                            setTimeout(function(){
-	                            	var url = "<%=request.getContextPath()%>/admin/sellerinfo.do?seller_info="+data.msg;
-	                                window.location.href=url;
+	                            	<%-- var url = "<%=request.getContextPath()%>/admin/sellerinfo.do?user_info="+data.msg; --%>
+	                                var url = "<%=request.getContextPath()%>/admin/user.do";
+	                            	window.location.href=url;
 	                            },1000)
 	                        }else{
 	                            Notify("flase", 'top-right', '3000', "danger", 'fa-edit');
-	                            $("#seller_set").attr('disabled',false);
+	                            $("#user_set").attr('disabled',false);
 	                        }
 	                    },
 	                    error:function(data){
 	                    	Notify("系统错误，请重试！", 'top-right', '3000', "danger", 'fa-edit');
-                            $("#seller_set").attr('disabled',false);
+                            $("#user_set").attr('disabled',false);
 	                    }
 	                });
 	            })

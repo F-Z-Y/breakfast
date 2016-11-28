@@ -46,9 +46,7 @@
 						<td><%=listn.get(i).getUserName()%></td>
 						<td><%=listn.get(i).getPhone()%></td>
 						<td><%=listn.get(i).getMoney()%></td>
-						<td><a class='btn btn-warning btn-xs info_edit' href=''>
-								<i class='fa fa-edit'></i>编辑
-						</a>&nbsp <a v_id="<%=listn.get(i).getId() %>" class='btn btn-info btn-xs user_recovery'> <i
+						<td><a v_id="<%=listn.get(i).getId() %>" class='btn btn-info btn-xs user_recovery'> <i
 								class='fa fa-trash-o'></i>用户恢复
 						</a></td>
 					</tr>

@@ -39,7 +39,15 @@
     <servlet-name>AddSeller</servlet-name>
     <servlet-class>com.fxb.breakfast.model.AddSeller</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AddUser</servlet-name>
+    <servlet-class>com.fxb.breakfast.model.AddUser</servlet-class>
+  </servlet>
   
+  <servlet-mapping>
+    <servlet-name>AddUser</servlet-name>
+    <url-pattern>/add_user</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>AddSeller</servlet-name>
     <url-pattern>/add_seller</url-pattern>
