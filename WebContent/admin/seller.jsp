@@ -44,9 +44,9 @@
 						<td><%=listn.get(i).getName()%></td>
 						<td><%=listn.get(i).getPhone()%></td>
 						<td><%=listn.get(i).getMoney()%></td>
-						<td><!-- <a class='btn btn-warning btn-xs info_edit' href=''>
+						<td><a class='btn btn-warning btn-xs' href='<%=request.getContextPath()%>/admin/addseller.do?seller=<%=listn.get(i).getId()%>'>
 								<i class='fa fa-edit'></i>编辑
-						</a>&nbsp  --><a v_id="<%=listn.get(i).getId() %>" class='btn btn-danger btn-xs good_del'> <i
+						</a>&nbsp <a v_id="<%=listn.get(i).getId() %>" class='btn btn-danger btn-xs good_del'> <i
 								class='fa fa-trash-o'></i>删除
 						</a></td>
 					</tr>
