@@ -46,9 +46,9 @@
 						<td><%=listn.get(i).getUserName()%></td>
 						<td><%=listn.get(i).getPhone()%></td>
 						<td><%=listn.get(i).getMoney()%></td>
-						<td><!-- <a class='btn btn-warning btn-xs info_edit' href=''>
+						<td><a class='btn btn-warning btn-xs' href='<%=request.getContextPath()%>/admin/adduser.do?user=<%=listn.get(i).getId()%>'>
 								<i class='fa fa-edit'></i>编辑
-						</a>&nbsp  --><a v_id="<%=listn.get(i).getId() %>" class='btn btn-danger btn-xs good_del'> <i
+						</a>&nbsp<a v_id="<%=listn.get(i).getId() %>" class='btn btn-danger btn-xs good_del'> <i
 								class='fa fa-trash-o'></i>删除
 						</a></td>
 					</tr>
@@ -76,7 +76,7 @@
 				//"aaSorting": [[4, 'false']],
 				columnDefs : [ {
 					orderable : false,//禁用排序
-					targets : [ 0, 5 ]//指定的列
+					targets : [ 0, 6 ]//指定的列
 				} ],
 				"language" : {
 					"sProcessing" : "正在加载数据...",

@@ -43,7 +43,15 @@
     <servlet-name>AddUser</servlet-name>
     <servlet-class>com.fxb.breakfast.model.AddUser</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>SaveUser</servlet-name>
+    <servlet-class>com.fxb.breakfast.model.SaveUser</servlet-class>
+  </servlet>
   
+  <servlet-mapping>
+    <servlet-name>SaveUser</servlet-name>
+    <url-pattern>/save_user</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>AddUser</servlet-name>
     <url-pattern>/add_user</url-pattern>

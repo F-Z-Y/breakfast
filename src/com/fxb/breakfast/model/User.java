@@ -7,6 +7,7 @@ public class User {
 	private String name;
 	private String userName;
 	private String phone;
+	private String address;
 	private float money;
 	public int getId() {
 		return id;
@@ -24,6 +25,15 @@ public class User {
 		this.setPhone(phone);
 		this.setMoney(money);
 	}
+	
+	public User(int id ,String name, String address,String phone) {
+		super();
+		this.setId(id);
+		this.setName(name);
+		this.setPhone(phone);
+		this.setAddress(address);
+	}
+	
 	public String getAccount() {
 		return account;
 	}
@@ -53,6 +63,12 @@ public class User {
 	}
 	public void setMoney(float money) {
 		this.money = money;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 }

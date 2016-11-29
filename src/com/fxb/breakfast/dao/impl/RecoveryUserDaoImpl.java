@@ -17,6 +17,12 @@ import com.fxb.breakfast.util.DbResourceManager;
 public class RecoveryUserDaoImpl implements UserDao{
 
 	@Override
+	public User getAll(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
 	public List<User> getAll() {
 		List<User> users=new ArrayList<User>();
 		PreparedStatement presta=null;

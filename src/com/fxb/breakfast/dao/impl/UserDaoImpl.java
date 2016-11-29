@@ -17,6 +17,11 @@ import com.fxb.breakfast.util.DbResourceManager;
 public class UserDaoImpl implements UserDao{
 
 	@Override
+	public User getAll(int id) {
+		return null;
+	}
+	
+	@Override
 	public List<User> getAll() {
 		List<User> users=new ArrayList<User>();
 		PreparedStatement presta=null;
@@ -28,13 +33,13 @@ public class UserDaoImpl implements UserDao{
 			presta=conn.prepareStatement(sql);
 			rest=presta.executeQuery();
 			while(rest.next()){
-				int id=rest.getInt("id");
+				int userid=rest.getInt("id");
 				String acconut=rest.getString("account");
 				String name=rest.getString("name");	
 				String userName=rest.getString("user_name");
 				String phone=rest.getString("phone");	
 				float money=rest.getFloat("money");
-				users.add(new User(id, acconut, name, userName,phone,money));
+				users.add(new User(userid, acconut, name, userName,phone,money));
 			}
 
 		} catch (SQLException e) {
