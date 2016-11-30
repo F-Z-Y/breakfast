@@ -71,4 +71,10 @@ public class RecoveryUserDaoImpl implements UserDao{
 		return null;
 	}
 
+	@Override
+	public User findId(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

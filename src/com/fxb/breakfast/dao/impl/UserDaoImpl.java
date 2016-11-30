@@ -71,4 +71,49 @@ public class UserDaoImpl implements UserDao{
 		return null;
 	}
 
+	@Override
+	public User findId(int id) {
+		User users=null;
+		PreparedStatement presta=null;
+		ResultSet rest=null;
+		Connection conn=null;
+		String sql="select l.account,u.* from user as u left join login as l on u.id=l.relation_id where u.id="+id+" and l.status=0 and l.type=3; ";
+		System.out.println("==="+sql);
+		try {
+			conn=DbResourceManager.getConnection();
+			presta=conn.prepareStatement(sql);
+			rest=presta.executeQuery();
+			while(rest.next()){
+				String acconut=rest.getString("account");
+				String address=rest.getString("address");
+				String name=rest.getString("name");	
+				String userName=rest.getString("user_name");
+				String phone=rest.getString("phone");	
+				float money=rest.getFloat("money");
+				String headImg=rest.getString("photo");
+				users=new User(id,address, acconut, name, userName,phone,money,headImg);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+
+			try {
+				if(rest!=null){
+					rest.close();
+				}
+				if(presta!=null){
+					presta.close();
+				}
+				if(conn!=null){
+					conn.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+		}
+		return users;
+	}
+
 }

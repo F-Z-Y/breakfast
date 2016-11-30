@@ -2,12 +2,13 @@ package com.fxb.breakfast.model;
 
 public class User {
 	private int id;
-	
+	private String address;
 	private String account;
 	private String name;
 	private String userName;
 	private String phone;
 	private float money;
+	private String headImg;
 	public int getId() {
 		return id;
 	}
@@ -53,6 +54,28 @@ public class User {
 	}
 	public void setMoney(float money) {
 		this.money = money;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public User(int id, String address, String account, String name, String userName, String phone, float money,String headImg) {
+		super();
+		this.id = id;
+		this.address = address;
+		this.account = account;
+		this.name = name;
+		this.userName = userName;
+		this.phone = phone;
+		this.money = money;
+	}
+	public String getHeadImg() {
+		return headImg;
+	}
+	public void setHeadImg(String headImg) {
+		this.headImg = headImg;
 	}
 
 }
