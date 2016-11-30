@@ -238,8 +238,9 @@
 					</a>
 
 						<ul class="submenu">
-							<li><a href="<%=request.getContextPath()%>/admin/addseller.do">
-									<span class="menu-text">添加商户</span>
+							<li><a
+								href="<%=request.getContextPath()%>/admin/addseller.do"> <span
+									class="menu-text">添加商户</span>
 							</a></li>
 							<li><a href="<%=request.getContextPath()%>/admin/seller.do">
 									<span class="menu-text">商户管理</span>
@@ -249,7 +250,7 @@
 									<span class="menu-text">商户恢复</span>
 							</a></li>
 						</ul></li>
-						
+
 					<li><a href="#" class="menu-dropdown"> <i
 							class="menu-icon fa fa-desktop"></i> <span class="menu-text">
 								用户 </span> <i class="menu-expand"></i></a>
@@ -263,6 +264,21 @@
 							<li><a
 								href="<%=request.getContextPath()%>/admin/recoveryuser.do">
 									<span class="menu-text">用户恢复</span>
+							</a></li>
+						</ul></li>
+					<li><a href="#" class="menu-dropdown"> <i
+							class="menu-icon fa fa-desktop"></i> <span class="menu-text">
+								充值/退款 </span> <i class="menu-expand"></i></a>
+						<ul class="submenu">
+							<li><a href="<%=request.getContextPath()%>/admin/adduser.do">
+									<span class="menu-text">资产管理</span>
+							</a></li>
+							<li><a href="<%=request.getContextPath()%>/admin/userrechange.do">
+									<span class="menu-text">用户充值</span>
+							</a></li>
+							<li><a
+								href="<%=request.getContextPath()%>/admin/userrefunds.do">
+									<span class="menu-text">用户退款</span>
 							</a></li>
 						</ul></li>
 				</ul>
