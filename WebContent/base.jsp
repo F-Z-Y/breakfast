@@ -270,7 +270,7 @@
 							class="menu-icon fa fa-desktop"></i> <span class="menu-text">
 								充值/退款 </span> <i class="menu-expand"></i></a>
 						<ul class="submenu">
-							<li><a href="<%=request.getContextPath()%>/admin/adduser.do">
+							<li><a href="<%=request.getContextPath()%>/admin/patrimonyset.do">
 									<span class="menu-text">资产管理</span>
 							</a></li>
 							<li><a href="<%=request.getContextPath()%>/admin/userrechange.do">

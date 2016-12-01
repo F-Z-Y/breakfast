@@ -51,7 +51,23 @@
     <servlet-name>SaveSeller</servlet-name>
     <servlet-class>com.fxb.breakfast.model.SaveSeller</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>CheckAccount</servlet-name>
+    <servlet-class>com.fxb.breakfast.model.CheckAccount</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>PatriCorrect</servlet-name>
+    <servlet-class>com.fxb.breakfast.model.PatriCorrect</servlet-class>
+  </servlet>
   
+  <servlet-mapping>
+    <servlet-name>PatriCorrect</servlet-name>
+    <url-pattern>/patri_correct</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckAccount</servlet-name>
+    <url-pattern>/check_user</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>SaveSeller</servlet-name>
     <url-pattern>/save_seller</url-pattern>
