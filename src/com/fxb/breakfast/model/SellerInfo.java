@@ -26,6 +26,15 @@ public class SellerInfo {
 		this.setStatus(status);
 		this.setSellerStatus(status);
 	}
+	
+	public SellerInfo(int id,String name,String phone,String introduction,String address) {
+		super();
+		this.setId(id);
+		this.setName(name);
+		this.setPhone(phone);
+		this.setAddress(address);
+		this.setIntroduction(introduction);
+	}
 
 	public int getId() {
 		return id;
@@ -96,9 +105,9 @@ public class SellerInfo {
 	}
 
 	public void setStatus(int status) {
-		String convert = "姝ｅ父";
+		String convert = "正常";
 		if(status==1){
-			convert = "姝囦笟浼戞暣";
+			convert = "歇业整顿";
 		}
 		this.status = convert;
 	}

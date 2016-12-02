@@ -12,6 +12,7 @@ public interface UserDao{
 	 * 锟斤拷询锟斤拷锟叫的诧拷品
 	 */
 	public List<User> getAll();
+	public User getAll(int id);
 	public PageBean findByPage(int page, int size);
     public User findId(int id);
 	/**

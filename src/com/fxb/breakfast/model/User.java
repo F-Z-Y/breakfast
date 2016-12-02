@@ -25,6 +25,15 @@ public class User {
 		this.setPhone(phone);
 		this.setMoney(money);
 	}
+	
+	public User(int id ,String name, String address,String phone) {
+		super();
+		this.setId(id);
+		this.setName(name);
+		this.setPhone(phone);
+		this.setAddress(address);
+	}
+	
 	public String getAccount() {
 		return account;
 	}
@@ -61,21 +70,6 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public User(int id, String address, String account, String name, String userName, String phone, float money,String headImg) {
-		super();
-		this.id = id;
-		this.address = address;
-		this.account = account;
-		this.name = name;
-		this.userName = userName;
-		this.phone = phone;
-		this.money = money;
-	}
-	public String getHeadImg() {
-		return headImg;
-	}
-	public void setHeadImg(String headImg) {
-		this.headImg = headImg;
-	}
+
 
 }

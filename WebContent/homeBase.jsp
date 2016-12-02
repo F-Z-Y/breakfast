@@ -87,8 +87,8 @@
                 <div class="navbar-header pull-center">
                  <ul class="nav">
                     <li><a href="index.do">首页</a></li>
-                    <li><a  href="product.jsp">商品</a></li>
-                    <li><a href="shop.jsp">商家</a></li>
+                    <li><a  href="product.do">商品</a></li>
+                    <li><a href="shop.do">商家</a></li>
                     <li><a href="profile.do">个人中心</a></li>
                   </ul>
                 </div>
@@ -100,7 +100,7 @@
                             <% if(request.getSession().getAttribute("userId")==null){ %>
                               <h4><span class="profile"><a href="login.jsp">登录</a></span></h4>
                               <% }else{%>
-                            	  <h4><span class="profile"><a href="profile.jsp"><%=session.getAttribute("account") %></a></span></h4>  
+                            	  <h4><span class="profile"><a href="profile.do"><%=session.getAttribute("account") %></a></span></h4>  
                               <%}%>
                             </li>
                             <!-- /Account Area -->
@@ -112,7 +112,7 @@
                                 <h4><span class="profile"><a href="login.jsp">注册</a></span></h4>
                               <%}else{ %>
                                 <h4><span class="profile"><a href="login.jsp">注销</a></span></h4>
-                              <%} %>
+                              <%}%>
                             </li>
                         </ul>
                         
@@ -170,6 +170,9 @@
 			});
 		});
 	</script>
+	<rapid:block name="js">  
+	                 
+	</rapid:block>  
 </body>
 <!--  /Body -->
 </html>

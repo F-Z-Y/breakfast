@@ -8,20 +8,25 @@
 	<link
 		href="<%=request.getContextPath()%>/assets/css/dataTables.bootstrap.css"
 		rel="stylesheet" type="text/css">
+	<style>
+		.seller_info_a,.good_info_a{
+			cursor: pointer;
+		}
+	</style>
 </rapid:override>
 <rapid:override name="page-title">
-	<li><i class="fa fa-home"></i> <a href="#">商品</a></li>
-	<li class="active">商品管理</li>
+	<li><i class="fa fa-home"></i> <a href="#">商铺</a></li>
+	<li class="active">商铺管理</li>
 </rapid:override>
 
 <rapid:override name="header-title">
- 商品管理
+ 商铺管理
 </rapid:override>
 
 <rapid:override name="content">
 	<div class="col-xs-12 col-md-12">
 		<div class="well with-header">
-			<div class="header bg-blue">商品表</div>
+			<div class="header bg-blue">商铺表</div>
 			<table class="table table-hover" id="editabledatatable">
 				<thead class="bordered-darkorange">
 					<tr>
@@ -41,12 +46,12 @@
 					<tr>
 						<td><%=listn.get(i).getId()%></td>
 						<td><%=listn.get(i).getAccount()%></td>
-						<td><%=listn.get(i).getName()%></td>
+						<td><a v_id="<%=listn.get(i).getId()%>" class="seller_info_a" ><%=listn.get(i).getName()%></a></td>
 						<td><%=listn.get(i).getPhone()%></td>
 						<td><%=listn.get(i).getMoney()%></td>
-						<td><!-- <a class='btn btn-warning btn-xs info_edit' href=''>
+						<td><a class='btn btn-warning btn-xs' href='<%=request.getContextPath()%>/admin/addseller.do?seller=<%=listn.get(i).getId()%>'>
 								<i class='fa fa-edit'></i>编辑
-						</a>&nbsp  --><a v_id="<%=listn.get(i).getId() %>" class='btn btn-danger btn-xs good_del'> <i
+						</a>&nbsp <a v_id="<%=listn.get(i).getId() %>" class='btn btn-danger btn-xs good_del'> <i
 								class='fa fa-trash-o'></i>删除
 						</a></td>
 					</tr>
@@ -68,6 +73,11 @@
 	<script src="<%=request.getContextPath()%>/assets/js/toastr/toastr.js"></script>
 	<script>
 		$(function() {
+			$(".seller_info_a").click(function(){
+				var obj_id = $(this).attr('v_id');
+				var url = "<%=request.getContextPath()%>/admin/sellerinfo.do?seller_info="+obj_id;
+				window.open(url);
+			})
 			$("#editabledatatable").dataTable({
 				"sDom" : "Tflt<'row DTTTFooter'<'col-sm-6'i><'col-sm-6'p>>",
 				"iDisplayLength" : 10,

@@ -1,4 +1,4 @@
-<%@page import="com.fxb.breakfast.model.User"%>
+<%@page import="com.fxb.breakfast.model.Transaction"%>
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -10,47 +10,57 @@
 		rel="stylesheet" type="text/css">
 </rapid:override>
 <rapid:override name="page-title">
-	<li><i class="fa fa-home"></i> <a href="#">用户</a></li>
-	<li class="active">用户管理</li>
+	<li><i class="fa fa-home"></i> <a href="#">充值/退款</a></li>
+	<li class="active">
+		<% if((int)request.getAttribute("status")==1){ %>
+			用户充值
+		<% }else{ %>
+			用户退款
+		<%} %>
+	</li>
 </rapid:override>
 
 <rapid:override name="header-title">
- 用户管理
+<% if((int)request.getAttribute("status")==1){ %>
+	用户充值
+<% }else{ %>
+	用户退款
+<%} %>
 </rapid:override>
 
 <rapid:override name="content">
 	<div class="col-xs-12 col-md-12">
 		<div class="well with-header">
-			<div class="header bg-blue">用户表</div>
+			<div class="header bg-blue">信息列表</div>
 			<table class="table table-hover" id="editabledatatable">
 				<thead class="bordered-darkorange">
 					<tr>
 						<th>#</th>
-						<th>帐号</th>
-						<th>姓名</th>
-						<th>昵称</th>
-						<th>联系方式</th>
-						<th>账户余额</th>
-						<th>操作</th>
+						<th>用户账号</th>
+						<th>用户名</th>
+						<th>金额（元）</th>
+						<th>用户联系方式</th>
+						<th>当前状态</th>
+						<!-- <th>操作</th> -->
 					</tr>
 				</thead>
 				<tbody>
 					<%
-						List<User> listn = (List<User>) request.getAttribute("userList");
+						List<Transaction> listn = (List<Transaction>) request.getAttribute("transaction");
 							for (int i = 0; i < listn.size(); i++) {
 					%>
 					<tr>
 						<td><%=listn.get(i).getId()%></td>
 						<td><%=listn.get(i).getAccount()%></td>
 						<td><%=listn.get(i).getName()%></td>
-						<td><%=listn.get(i).getUserName()%></td>
-						<td><%=listn.get(i).getPhone()%></td>
 						<td><%=listn.get(i).getMoney()%></td>
-						<td><a class='btn btn-warning btn-xs' href='<%=request.getContextPath()%>/admin/adduser.do?user=<%=listn.get(i).getId()%>'>
+						<td><%=listn.get(i).getPhone()%></td>
+						<td><%=listn.get(i).getStatusInfo()%></td>
+						<%-- <td><a class='btn btn-warning btn-xs' href='<%=request.getContextPath()%>/admin/adduser.do?user=<%=listn.get(i).getId()%>'>
 								<i class='fa fa-edit'></i>编辑
 						</a>&nbsp<a v_id="<%=listn.get(i).getId() %>" class='btn btn-danger btn-xs good_del'> <i
 								class='fa fa-trash-o'></i>删除
-						</a></td>
+						</a></td> --%>
 					</tr>
 					<%
 						}
@@ -74,10 +84,10 @@
 				"sDom" : "Tflt<'row DTTTFooter'<'col-sm-6'i><'col-sm-6'p>>",
 				"iDisplayLength" : 10,
 				//"aaSorting": [[4, 'false']],
-				columnDefs : [ {
+				/* columnDefs : [ {
 					orderable : false,//禁用排序
 					targets : [ 0, 6 ]//指定的列
-				} ],
+				} ], */
 				"language" : {
 					"sProcessing" : "正在加载数据...",
 					"sZeroRecords" : "没有您要搜索的内容",

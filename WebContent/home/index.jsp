@@ -49,7 +49,7 @@
 			                                     <img class="img" width="100%" height="167" src="../img/yupian.jpg" style="opacity: 1;">
 			                                     </a></span><span id="line1"><span class="price">￥${c.pice}</span><span class="title">${c.productName}</span></span><span id="line2">
 			                                     <span class="standard">规格：箱</span>
-			                                     <a id="more" href="prdetail.do?id=${c.id}">详情</a>
+			                                     <a id="more" class="more-off" href="prdetail.do?id=${c.id}">详情</a>
 			                                     </span>
 			                                     <div style="clear:both;"></div>
                                                </div>

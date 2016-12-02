@@ -17,6 +17,10 @@ public class SellerInfoDaoImpl implements SellerInfoDao{
 	@Override
 	public SellerInfo getInfo(int obj_id) {
 		SellerInfo sellerInfo = null;
+		if(obj_id == 0){
+			sellerInfo = new SellerInfo(0,null,null,null,null);
+			return sellerInfo;
+		}
 		PreparedStatement presta=null;
 		ResultSet rest=null;
 		Connection conn=null;
