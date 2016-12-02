@@ -270,15 +270,26 @@
 							class="menu-icon fa fa-desktop"></i> <span class="menu-text">
 								充值/退款 </span> <i class="menu-expand"></i></a>
 						<ul class="submenu">
-							<li><a href="<%=request.getContextPath()%>/admin/patrimonyset.do">
+							<li><a
+								href="<%=request.getContextPath()%>/admin/patrimonyset.do">
 									<span class="menu-text">资产管理</span>
 							</a></li>
-							<li><a href="<%=request.getContextPath()%>/admin/userrechange.do">
+							<li><a
+								href="<%=request.getContextPath()%>/admin/userrechange.do">
 									<span class="menu-text">用户充值</span>
 							</a></li>
 							<li><a
-								href="<%=request.getContextPath()%>/admin/userrefunds.do">
-									<span class="menu-text">用户退款</span>
+								href="<%=request.getContextPath()%>/admin/userrefunds.do"> <span
+									class="menu-text">用户退款</span>
+							</a></li>
+						</ul></li>
+					<li><a href="#" class="menu-dropdown"> <i
+							class="menu-icon fa fa-desktop"></i> <span class="menu-text">
+								订单 </span> <i class="menu-expand"></i></a>
+						<ul class="submenu">
+							<li><a
+								href="<%=request.getContextPath()%>/admin/order.do">
+									<span class="menu-text">订单列表</span>
 							</a></li>
 						</ul></li>
 				</ul>

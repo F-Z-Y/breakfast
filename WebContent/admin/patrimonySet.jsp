@@ -21,7 +21,7 @@
 <rapid:override name="content">
 	<div class="col-xs-12 col-md-12">
 		<div class="well with-header">
-			<div class="header bg-blue">用户添加</div>
+			<div class="header bg-blue">验证 + 操作</div>
 			<div class="btn-group">
                 <a onclick="location.reload();" class="btn btn-default btn-add">
                     <i class="glyphicon glyphicon-refresh"></i>刷新

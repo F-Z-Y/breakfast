@@ -39,9 +39,9 @@
 						<th>用户账号</th>
 						<th>用户名</th>
 						<th>金额（元）</th>
-						<th>当前状态</th>
 						<th>用户联系方式</th>
-						<th>操作</th>
+						<th>当前状态</th>
+						<!-- <th>操作</th> -->
 					</tr>
 				</thead>
 				<tbody>
@@ -54,13 +54,13 @@
 						<td><%=listn.get(i).getAccount()%></td>
 						<td><%=listn.get(i).getName()%></td>
 						<td><%=listn.get(i).getMoney()%></td>
-						<td><%=listn.get(i).getStatusInfo()%></td>
 						<td><%=listn.get(i).getPhone()%></td>
-						<td><a class='btn btn-warning btn-xs' href='<%=request.getContextPath()%>/admin/adduser.do?user=<%=listn.get(i).getId()%>'>
+						<td><%=listn.get(i).getStatusInfo()%></td>
+						<%-- <td><a class='btn btn-warning btn-xs' href='<%=request.getContextPath()%>/admin/adduser.do?user=<%=listn.get(i).getId()%>'>
 								<i class='fa fa-edit'></i>编辑
 						</a>&nbsp<a v_id="<%=listn.get(i).getId() %>" class='btn btn-danger btn-xs good_del'> <i
 								class='fa fa-trash-o'></i>删除
-						</a></td>
+						</a></td> --%>
 					</tr>
 					<%
 						}
@@ -84,10 +84,10 @@
 				"sDom" : "Tflt<'row DTTTFooter'<'col-sm-6'i><'col-sm-6'p>>",
 				"iDisplayLength" : 10,
 				//"aaSorting": [[4, 'false']],
-				columnDefs : [ {
+				/* columnDefs : [ {
 					orderable : false,//禁用排序
 					targets : [ 0, 6 ]//指定的列
-				} ],
+				} ], */
 				"language" : {
 					"sProcessing" : "正在加载数据...",
 					"sZeroRecords" : "没有您要搜索的内容",
