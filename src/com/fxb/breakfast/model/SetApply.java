@@ -3,7 +3,9 @@ package com.fxb.breakfast.model;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -16,10 +18,12 @@ import org.json.simple.JSONObject;
 
 import com.fxb.breakfast.util.DbResourceManager;
 
+import sun.reflect.generics.tree.IntSignature;
+
 /**
  * Servlet implementation class Delete
  */
-@WebServlet("/Delete")
+@WebServlet("/SetApply")
 public class SetApply extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -37,21 +41,47 @@ public class SetApply extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		int id = Integer.parseInt(request.getParameter("id"));
-		int set_status = request.getParameter("status");
-		if(){
-			
+		int set_status = Integer.parseInt(request.getParameter("status"));
+		int status = 0;
+		if(set_status==0){
+			status = 1;
 		}
-		int status = 3;
 		PreparedStatement presta=null;
-		int rest=0;
+		ResultSet rest=null;
 		Connection conn=null;
-		String sql="update transaction set status=? where id=?; ";
+		boolean res = false;
 		try {
 			conn=DbResourceManager.getConnection();
-			presta=conn.prepareStatement(sql);
-			presta.setInt(1, status);
-			presta.setInt(2, id);
-			rest=presta.executeUpdate();
+			
+			String check_sql="select * from transaction where id=?";
+			presta=conn.prepareStatement(check_sql);
+			presta.setInt(1, id);
+			rest=presta.executeQuery();
+			int nowStatus=1,type=0,apply_money=0,user_id=0;
+			while (rest.next()) {
+				nowStatus = rest.getInt("status");
+				type  = rest.getInt("type");
+				apply_money = rest.getInt("money");
+				user_id = rest.getInt("relation_id");
+			}
+			
+			if(nowStatus==0 && type==1 && user_id!=0){
+				String update_sql="update transaction set status=?,update_time=? where id=?; ";
+				presta=conn.prepareStatement(update_sql);
+				presta.setInt(1, 1);
+				presta.setLong(2, System.currentTimeMillis());
+				presta.setInt(3, id);
+				presta.executeUpdate();
+				
+				String set_money = "update user set money=money+? where id=?; ";
+				presta=conn.prepareStatement(set_money);
+				presta.setInt(1, apply_money);
+				presta.setInt(2, user_id);
+				int apply_res = presta.executeUpdate();
+				if(apply_res==1){
+					res = true;
+				}
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{
@@ -71,7 +101,7 @@ public class SetApply extends HttpServlet {
 		JSONObject obj = new JSONObject();
 		int code = 1;
 		boolean msg = false;
-		if(rest==1){
+		if(res){
 			code = 0;
 			msg = true;
 		}

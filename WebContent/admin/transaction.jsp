@@ -56,11 +56,13 @@
 						<td><%=listn.get(i).getMoney()%></td>
 						<td><%=listn.get(i).getPhone()%></td>
 						<td><%=listn.get(i).getStatusInfo()%></td>
-						<td v_obj=<%=listn.get(i).getId()%>><a class='btn btn-warning btn-xs money_yes'>
-								<i class='fa fa-edit'></i>已收到转账
-						</a>&nbsp<a v_id="<%=listn.get(i).getId() %>" class='btn btn-danger btn-xs money_no'> <i
-								class='fa fa-trash-o'></i>未收到转账
-						</a></td>
+						<td v_obj=<%=listn.get(i).getId()%>>
+						<%if(listn.get(i).getStatus()==0){ %>
+							<a class='btn btn-warning btn-xs money_yes'> <i class='fa fa-edit'></i>收到转账</a>
+						<%}else{%>
+							已成功充值
+						<%} %>
+						</td>
 					</tr>
 					<%
 						}
@@ -83,7 +85,7 @@
 			$("#editabledatatable").dataTable({
 				"sDom" : "Tflt<'row DTTTFooter'<'col-sm-6'i><'col-sm-6'p>>",
 				"iDisplayLength" : 10,
-				//"aaSorting": [[4, 'false']],
+				"aaSorting": [[0, 'false']],
 				columnDefs : [ {
 					orderable : false,//禁用排序
 					targets : [ 0, 6 ]//指定的列
@@ -103,16 +105,17 @@
 					}
 				},
 			});
-			$(".money_no").click(function(){
-				var obj_id = $(this).parents("td").attr("v_id");
+			/* $(".money_no").click(function(){
+				var obj_id = $(this).parents("td").attr("v_obj");
 				set_apply(obj_id,1);
-			})
+			}) */
 			
 			$(".money_yes").click(function(){
-				var obj_id = $(this).parents("td").attr("v_id");
+				var obj_id = $(this).parents("td").attr("v_obj");
 				set_apply(obj_id,0);
 			})
 			function set_apply(obj_id,status){
+				console.log(obj_id);
 				bootbox.confirm({
                     buttons: {
                         confirm: {
