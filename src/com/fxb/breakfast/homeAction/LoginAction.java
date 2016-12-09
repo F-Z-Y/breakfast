@@ -28,9 +28,10 @@ public class LoginAction implements Action{
 		if(user!=null){
 			result.setCode(0);
 			result.setMsg("登录成功!!!");
-			HttpSession session=req.getSession();
-			session.setAttribute("userId", user.getId());
-			session.setAttribute("account", user.getAccount());
+			HttpSession seesion=req.getSession();
+			seesion.setAttribute("userId", user.getId());
+			System.out.println("---->>---"+seesion.getAttribute("userId"));
+			seesion.setAttribute("account", user.getAccount());
 		}else{
 			result.setCode(1);
 			result.setMsg("用户名或密码错误!!!");

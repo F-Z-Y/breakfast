@@ -1,5 +1,7 @@
 package com.fxb.breakfast.model;
 
+import java.util.List;
+
 public class Order {
 	private int id;
 	private int userId;
@@ -7,14 +9,14 @@ public class Order {
 	private int status;
 	private int num;
 	private float money;
-	
+	private List<Product> products;
 	private String userName;
 	private String goodName;
 	private String acconut;
 	private String phone;
 	private String statusInfo;
 	private String orderNum;
-
+	private String createtime;
 	public Order(int id, int userId, int goodId, int status,int num,float money,String userName, String goodName, String account,String phone,String orderNum) {
 		super();
 		this.setId(id);
@@ -173,6 +175,41 @@ public class Order {
 
 	public void setOrderNum(String orderNum) {
 		this.orderNum = orderNum;
+	}
+
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+
+
+	public String getCreatetime() {
+		return createtime;
+	}
+
+
+	public void setCreatetime(String createtime) {
+		this.createtime = createtime;
+	}
+
+
+	public void setStatusInfo(String statusInfo) {
+		this.statusInfo = statusInfo;
+	}
+
+
+	public Order(float money, List<Product> products, int status, String orderNum, String createtime) {
+		super();
+		this.money = money;
+		this.products = products;
+		this.status = status;
+		this.orderNum = orderNum;
+		this.createtime = createtime;
 	}
 
 }

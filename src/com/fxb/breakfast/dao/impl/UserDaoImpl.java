@@ -1,9 +1,11 @@
 package com.fxb.breakfast.dao.impl;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -119,6 +121,64 @@ public class UserDaoImpl implements UserDao{
 
 		}
 		return users;
+	}
+
+	@Override
+	public boolean updateInfo(int userId, String name, String username, String phone, String address) {
+	    Connection conn=null;
+	    PreparedStatement presta=null;
+	    conn=DbResourceManager.getConnection();
+	    String sql="update user set name='"+name+"',user_name='"+username+"',phone='"+phone+"',address='"+address+"' where id="+userId+";";
+	    boolean flag=false;
+	    try {
+			presta=conn.prepareStatement(sql);
+			int status=presta.executeUpdate();
+			if(status>0) flag=true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+
+			try {
+				
+				if(presta!=null){
+					presta.close();
+				}
+				if(conn!=null){
+					conn.close();
+				}
+		  } catch (SQLException e) {
+				e.printStackTrace();
+		   }
+		}
+	    
+		return flag;
+	}
+
+	@Override
+	public int insertInfo(String name, String username, String phone, String address) {
+		
+		
+		return 0;
+	}
+
+	@Override
+	public boolean updateMoney(int userId,float prices) {
+		Connection conn=null;
+		Statement statem=null;
+		String sql="update user set money=money-"+prices+" where id="+userId;
+		boolean flag=false;
+		conn=DbResourceManager.getConnection();
+		try {
+			statem=conn.createStatement();
+			int status=statem.executeUpdate(sql);
+			if(status>0)flag=true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return flag;
 	}
 
 }

@@ -18,7 +18,7 @@
 			<!-- widget flat radius-bordered -->
 			<div class="widget flat radius-bordered">
               <div class="widget-header bg-themeprimary">
-                  <span class="widget-caption">全部商品</span>
+                  <span class="widget-caption">商品</span>
               </div>
 
               <div class="widget-body">
@@ -75,7 +75,7 @@
           <!-- widget flat radius-bordered -->
           <div class="widget flat radius-bordered">
               <div class="widget-header bg-themeprimary">
-                  <span class="widget-caption">全部商家</span>
+                  <span class="widget-caption">商家</span>
               </div>
               <div class="widget-body">
               <c:forEach items="${shopList}" var="c" varStatus="status">

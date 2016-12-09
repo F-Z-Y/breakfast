@@ -3,11 +3,13 @@ package com.fxb.breakfast.model;
 public class Product {
 	private int id;
 	private int sellerId;
-	
+	private int count;
 	private String productName;
 	private String sellerName;
 	private float pice;
 	private int mark;
+	private int num;
+	private String time;
 	public int getId() {
 		return id;
 	}
@@ -54,6 +56,27 @@ public class Product {
 		this.sellerName = sellerName;
 		this.pice = pice;
 		this.mark = mark;
+	}
+	public int getNum() {
+		return num;
+	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
+	public Product(String productName, float pice, int num) {
+		super();
+		this.productName = productName;
+		this.pice = pice;
+		this.num = num;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
 	}
 
 }

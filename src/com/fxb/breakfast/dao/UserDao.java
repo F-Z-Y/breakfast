@@ -23,5 +23,7 @@ public interface UserDao{
 	 * @return 锟斤拷前页锟斤拷业锟斤拷实锟斤拷锟斤拷锟斤拷锟叫憋拷锟斤拷锟斤拷
 	 */
 	public PageBean findByPage(QueryBean queryBean, int page, int size);
-	
+	public boolean updateInfo(int userId,String name,String username,String phone,String address);
+	public int insertInfo(String name,String username,String phone,String address);
+	public boolean updateMoney(int userId,float prices);
 }

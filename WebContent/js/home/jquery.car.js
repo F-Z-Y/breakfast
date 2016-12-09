@@ -100,6 +100,7 @@ var layer_index  ="";  //登录弹窗id
 		$.cookie("mini_car", '', { expires: -1, path: "/" });
 		$('#table').html('<tr class="th"><td class="car-list-product">产品</td><td class="car-list-num">数量</td><td class="car-list-price th">单价</td></tr>');
 		$('#money').text('0.00');
+		
 	})
 
 	//显示隐藏购物车
@@ -158,7 +159,6 @@ function addList(){
 		//保存到cookie1天
 		$.cookie("mini_car", JSON.stringify(carArray),{expires:1, path: "/" }); 
 		$('.car-wap').scrollTop += 30;
-		
 	}
 	$('#money').text(new_money);
 

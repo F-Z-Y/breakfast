@@ -10,20 +10,17 @@ import com.fxb.breakfast.action.Action;
 import com.fxb.breakfast.action.ActionResult;
 import com.fxb.breakfast.action.ResultContent;
 import com.fxb.breakfast.action.ResultType;
-import com.fxb.breakfast.dao.impl.ProductDaoImpl;
-import com.fxb.breakfast.dao.impl.SellerInfoDaoImpl;
-import com.fxb.breakfast.model.SellerInfo;
+import com.fxb.breakfast.dao.impl.UserDaoImpl;
+import com.fxb.breakfast.dao.impl.UserInfoDaoImpl;
 
-public class ShopDetailAction implements Action{
+public class ProfileAlterAction implements Action{
 
 	@Override
 	public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int id=Integer.valueOf(req.getParameter("id"));
-		SellerInfo sellerInfo=new SellerInfoDaoImpl().getInfo(id);
-		req.setAttribute("shopDetail",sellerInfo);
-		req.setAttribute("productList", new ProductDaoImpl().getIDAll(id));
-		return new ActionResult(new ResultContent("shopDetail.jsp"),ResultType.Forward);
+		int userId=(int)req.getSession().getAttribute("userId");
+		req.setAttribute("userInfo", new UserInfoDaoImpl().getAll(userId));
+		return new ActionResult(new ResultContent("profileAlter.jsp"),ResultType.Forward);
 	}
-         
+
 }

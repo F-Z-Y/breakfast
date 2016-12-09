@@ -54,6 +54,73 @@ public class LoginDaoImpl implements LoginDao{
 		}
 		return login;
 	}
+
+	@Override
+	public boolean findUser(String username) {
+		PreparedStatement presta=null;
+		ResultSet rest=null;
+		Connection conn=null;
+		String sql="select * from login where account='"+username+"';";
+		boolean flag=false;
+		conn=DbResourceManager.getConnection();
+		try {
+			presta=conn.prepareStatement(sql);
+			rest=presta.executeQuery();
+			if(rest.next())flag=true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+
+			try {
+				if(rest!=null){
+					rest.close();
+				}
+				if(presta!=null){
+					presta.close();
+				}
+				if(conn!=null){
+					conn.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+		}
+		
+		return flag;
+	}
+
+	@Override
+	public int insertUser(String account, String password, int type, int relation_id) {
+		Connection conn=null;
+		PreparedStatement prepare=null;
+		String sql="insert into login (account,password,type,relation_id,status) value('"+account+"','"+password+"',"+type+","+relation_id+",0)";
+		conn=DbResourceManager.getConnection();
+		int sta=0;
+		try {
+			prepare=conn.prepareStatement(sql);
+			sta=prepare.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+
+			try {
+				if(prepare!=null){
+					prepare.close();
+				}
+				if(conn!=null){
+					conn.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+		}
+		
+		return sta;
+	}
 	
 
 }

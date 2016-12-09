@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,6 +72,39 @@ public class TransactionDaoImpl implements TransactionDao{
 	public PageBean findByPage(QueryBean queryBean, int page, int size) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public boolean insert(float money, int type, int status, int relationId, long time) {
+		Connection conn=null;
+		Statement state=null;
+		String sql="insert into transaction (money,type,status,relation_id,create_time)values("+money+","+type+","+status+","+relationId+","+time+");";
+		boolean flag=false;
+		try {
+			conn=DbResourceManager.getConnection();
+			state=conn.createStatement();
+			int satus=state.executeUpdate(sql);
+			if(satus>0)flag=true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			
+				try {
+					if(state!=null){
+					    state.close();
+					}
+					if(conn!=null){
+						conn.close();
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+		}
+		
+		return flag;
 	}
 
 }

@@ -10,5 +10,6 @@ import com.fxb.breakfast.model.User;
 public interface LoginDao {
 
 	public LogIn findAll(String username,String password,int type);
-
+    public boolean findUser(String username);
+    public int insertUser(String account,String password,int type,int relation_id);
 }

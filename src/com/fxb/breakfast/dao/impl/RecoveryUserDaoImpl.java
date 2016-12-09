@@ -83,4 +83,22 @@ public class RecoveryUserDaoImpl implements UserDao{
 		return null;
 	}
 
+	@Override
+	public boolean updateInfo(int userId, String name, String username, String phone, String address) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public int insertInfo(String name, String username, String phone, String address) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean updateMoney(int userId, float prices) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

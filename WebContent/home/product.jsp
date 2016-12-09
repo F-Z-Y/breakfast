@@ -7,9 +7,15 @@
 <rapid:override name="css">
 <link href="<%=request.getContextPath()%>/css/home/product.css"  rel="stylesheet" /> 
 </rapid:override>
+<% Cookie co=new Cookie("name","fanxiaobing"); 
+    response.addCookie(co);
+%>
 <rapid:override name="main-content">
-			<!-- widget flat radius-bordered -->
-			<div class="widget flat radius-bordered">
+            <div class="widget flat radius-bordered">
+              <div class="widget-header bg-themeprimary">
+                  <span class="widget-caption">全部商品</span>
+              </div>
+
               <div class="widget-body">
                   <div class="widget-main ">
                       <div class="tabbable">
@@ -27,32 +33,35 @@
                           </ul>
                           <div class="tab-content tabs-flat">
                               <div id="home11" class="tab-pane active">
-                                <c:forEach items="${productList}" var="c" varStatus="status">
-                                  <c:if test="$status.index%3==0">
+                              <c:forEach items="${productList}" var="c" varStatus="status">
+                                <c:if test="${status.index%3==0}">
                                   <div class="row">
                                   </c:if>
-		                            <div class="col-md-4">
-		                               <div class="product-item">
-		                                     <span id="line0">
-		                                     <a href="/mini/index.php/index/goods/detail.html?id=3">
-		                                     <img class="img" width="100%" height="167" src="../img/yupian.jpg" style="opacity: 1;">
-		                                     </a></span><span id="line1"><span class="price">￥${c.pice}</span><span class="title">${c.productName}</span></span><span id="line2">
-		                                     <span class="standard">规格：箱</span>
-		                                      <span style="float:right;    margin-top: 6px;">
-		                                           <img dataname="${c.productName}" dataprice="${c.pice}" dataid="${c.id}" class="addcar" src="<%=request.getContextPath()%>/img/shopping_cart.png"></span>
-		                                     <a id="more" class="more-off" href="prdetail.do?id=${c.id}">详情</a>
-		                                     </span>
-		                                     <div style="clear:both;"></div>
-		                                </div>
-		                              </div>  
-		                            <c:if test="$status.index%3==2">         
-		                           </div>
-		                            </c:if>
-		                          </c:forEach>
-		                           <c:if test="$status.index%3!=2">         
-		                           </div>
-		                            </c:if>
-		                       </div>
+                                  <div class="col-md-4">
+			                             <div class="product-item">
+			                                     <span id="line0">
+			                                     <a href="prdetail.jsp">
+			                                     <img class="img" width="100%" height="167" src="../img/yupian.jpg" style="opacity: 1;">
+			                                     </a></span><span id="line1"><span class="price">￥${c.pice}</span><span class="title">${c.productName}</span></span><span id="line2">
+			                                     <span class="standard">规格：箱</span>
+			                                     <a id="more" class="more-off" href="prdetail.do?id=${c.id}">详情</a>
+			                                     </span>
+			                                     <span style="margin-left: 10px;
+                                                          margin-bottom: 10px;">
+                                                          <img dataname="${c.productName}" dataprice="${c.pice}" dataid="${c.id}" class="addcar" src="<%=request.getContextPath() %>/img/shopping_cart.png"></span>
+			                                     <div style="clear:both;"></div>
+                                               </div>
+			                            </div>  
+		                              
+			                       <c:if test="${status.index%3==2}">
+                                      </div>
+                                  </c:if>
+			                        </c:forEach>
+			                      <c:if test="${status.index%3!=2}">
+                                      </div>
+                                  </c:if>
+                              </div>
+
                               <div id="profile11" class="tab-pane">
                                   <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
                               </div>
@@ -61,6 +70,7 @@
                   </div>
               </div>
           </div>
+		
       <!-- 购物车begin -->
 		<div class="car">
 		  <div class="car-wap">
@@ -80,7 +90,7 @@
 		  </div>
 		  <div class="car-footer">
 		    <div id="car-icon"><i id="end"></i>共<span id="money">0.00</span>元</div>
-		    <a href="{:url('cart/index?type=step1')}" id="go"><div class="go">去结算</div></a>
+		    <a href="order.do" id="go"><div class="go">去结算</div></a>
 		  </div>
 		</div>
 <!-- 购物车end -->

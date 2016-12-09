@@ -77,7 +77,7 @@
 		</div>
 <!-- 购物车end -->
 </rapid:override>
-<<rapid:override name="js">
+<rapid:override name="js">
  <script src="<%=request.getContextPath()%>/js/home/jquery.cookie.js"></script>
  <script>
    var car_path= '<%=request.getContextPath()%>/img';

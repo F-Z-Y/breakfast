@@ -111,7 +111,7 @@
                                <%if(request.getSession().getAttribute("userId")==null){ %>
                                 <h4><span class="profile"><a href="login.jsp">注册</a></span></h4>
                               <%}else{ %>
-                                <h4><span class="profile"><a href="login.jsp">注销</a></span></h4>
+                                <h4><span class="profile"><a href="logout.do">注销</a></span></h4>
                               <%}%>
                             </li>
                         </ul>
@@ -140,11 +140,7 @@
 
     <!--Beyond Scripts-->
     <script src="<%=request.getContextPath()%>/assets/js/beyond.min.js"></script>
-
-
- 
-
-
+    <script src="<%=request.getContextPath()%>/assets/js/toastr/toastr.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/home/vmc.slider.full.min.js"></script>
       <!--Google Analytics::Demo Only-->
     <script type="text/javascript">
