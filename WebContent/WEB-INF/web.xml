@@ -59,7 +59,15 @@
     <servlet-name>PatriCorrect</servlet-name>
     <servlet-class>com.fxb.breakfast.model.PatriCorrect</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>SetApply</servlet-name>
+    <servlet-class>com.fxb.breakfast.model.SetApply</servlet-class>
+  </servlet>
   
+  <servlet-mapping>
+    <servlet-name>SetApply</servlet-name>
+    <url-pattern>/set_apply</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>PatriCorrect</servlet-name>
     <url-pattern>/patri_correct</url-pattern>
