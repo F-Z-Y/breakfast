@@ -61,7 +61,7 @@ public class PayAction implements Action{
 		/*int goodId=Integer.valueOf(info[i][0].substring(info[i][0].indexOf('"')+1, info[i][0].lastIndexOf('"')));
 		orderID+=goodId;
 		int num=Integer.valueOf(info[i][3]);*/
-	   flag=new OrderDaoImpl().insertOrder(orderID, userId, 0, 0, 0, user.getName(), user.getPhone(), user.getAddress(), 0, time);
+	   flag=new OrderDaoImpl().insertOrder(orderID, userId, 0, 0, 0, user.getName(), user.getPhone(), user.getAddress(), 6, time);
 		if(flag){
 			for (int i = 0; i < cookies.length; i++) {
 				if(cookies[i].getName().equals("mini_car")){

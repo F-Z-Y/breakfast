@@ -3,7 +3,6 @@ package com.fxb.breakfast.model;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,8 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONObject;
 
 import com.fxb.breakfast.util.DbResourceManager;
-
-import sun.reflect.generics.tree.IntSignature;
 
 /**
  * Servlet implementation class Delete

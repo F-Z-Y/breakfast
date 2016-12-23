@@ -5,7 +5,7 @@
 <%@taglib uri="http://www.rapid-framework.org.cn/rapid" prefix="rapid" %>  
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <rapid:override name="main-content">
-    <div class="content" style="width:1000px;height:300px;margin:30px auto;overflow:hidden;">
+    <!-- <div class="content" style="width:1000px;height:300px;margin:30px auto;overflow:hidden;">
 				<div id="slider">
 					<a href="#"><img src="../img/demo1.jpg"/></a>
 					<a href="#"><img src="../img/demo2.jpg"/></a>
@@ -14,7 +14,7 @@
 					<a href="#"><img src="../img/demo5.jpg"/></a>
 					<a href="#"><img src="../img/demo6.jpg"/></a>
 				</div>
-			</div>
+			</div> -->
 			<!-- widget flat radius-bordered -->
 			<div class="widget flat radius-bordered">
               <div class="widget-header bg-themeprimary">

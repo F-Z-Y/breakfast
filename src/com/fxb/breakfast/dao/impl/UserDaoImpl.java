@@ -163,10 +163,16 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public boolean updateMoney(int userId,float prices) {
+	public boolean updateMoney(int userId,float prices,int type) {
 		Connection conn=null;
 		Statement statem=null;
-		String sql="update user set money=money-"+prices+" where id="+userId;
+		String sql="";
+		if(type==0){
+			sql="update user set money=money-"+prices+" where id="+userId;
+		}else{
+			sql="update user set money=money+"+prices+" where id="+userId;
+		}
+		
 		boolean flag=false;
 		conn=DbResourceManager.getConnection();
 		try {

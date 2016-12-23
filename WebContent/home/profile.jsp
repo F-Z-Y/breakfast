@@ -89,7 +89,24 @@
                                                                                                                                                                                                        名称: ${p.productName} 单价：${p.pice}(元) 数量：${p.num}|
                                                       </c:forEach>
                                                     </div>
-                                                    <div class="task-creator">实付金额：￥${c.money}</div>
+                                                    <c:set var="str" scope="session" value="${c.status}"/>
+                                                    <div class="task-creator">
+                                                    <c:choose>
+                                                    <c:when test="${str==6}">
+                                                                                                                                                                                                     待付金额：￥${c.money}
+                                                     <button class="pay" num="${c.orderNum}" price="${c.money}">支付</button>
+                                                    </c:when>
+                                                    <c:when test="${str==0}">
+                                                                                                                                                                                                        实付金额：￥${c.money}
+                                                       <button class="drawback" num="${c.orderNum}" price="${c.money}">退款</button>
+                                                    </c:when>
+                                                     <c:when test="${str!=0&&str!=6&&str!=2&&str!=3}">
+                                                                                                                                                                                                 实付金额：￥${c.money}
+                                                       <button class="drawbackOK" num="${c.orderNum}"  price="${c.money}">退款</button>                                                                                                                              
+                                                          <button class="ok" num="${c.orderNum}">确认收货</button>
+                                                      </c:when>
+                                                    </c:choose>
+                                                   </div>
                                                     <div class="task-assignedto">状态：${c.statusInfo}</div>
                                                 </li>
                                                </c:forEach>

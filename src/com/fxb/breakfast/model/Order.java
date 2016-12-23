@@ -150,6 +150,9 @@ public class Order {
 		case 5:
 			convert="配送中";
 			break;
+		case 6:
+			convert="未支付";
+			break;
 		default:
 			convert="订单有误";
 			break;

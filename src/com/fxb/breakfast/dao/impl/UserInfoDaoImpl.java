@@ -133,9 +133,8 @@ public class UserInfoDaoImpl implements UserDao{
 		return Id;
 	}
 
-
 	@Override
-	public boolean updateMoney(int userId, float prices) {
+	public boolean updateMoney(int userId, float prices, int type) {
 		// TODO Auto-generated method stub
 		return false;
 	}

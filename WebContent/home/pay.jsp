@@ -79,6 +79,23 @@
              </div>
      </div>
   </div>
+   <%
+Cookie cookies[] = request.getCookies();  
+if (cookies != null)  
+{  
+    for (int i = 0; i < cookies.length; i++)  
+    {  
+        if (cookies[i].getName().equals("mini_car"))  
+        {  
+            Cookie cookie = new Cookie("mini_car","ww");//这边得用"",不能用null  
+            cookie.setPath("/");//设置成跟写入cookies一样的  
+           // cookie.setDomain(".wangwz.com");//设置成跟写入cookies一样的  
+            cookie.setMaxAge(0);  
+            response.addCookie(cookie);  
+        }  
+    }  
+}  
+%>
 </rapid:override>
 <rapid:override name="js">
  <script src="<%=request.getContextPath()%>/js/home/pay.js"></script>

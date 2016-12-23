@@ -118,11 +118,11 @@ public class OrderDaoImpl implements OrderDao{
 	}
 
 	@Override
-	public boolean updatePay(String orderID,float money) {
+	public boolean updatePay(String orderID,float money,int status) {
 		boolean flag=false;
 		PreparedStatement presta=null;
 		Connection conn=null;
-		String sql="update orders set money="+money+" where order_number='"+orderID+"';";
+		String sql="update orders set money="+money+",status="+status+" where order_number='"+orderID+"';";
 		 System.out.println("===="+sql);
 		conn=DbResourceManager.getConnection();
 		try {
@@ -172,7 +172,6 @@ public class OrderDaoImpl implements OrderDao{
 				String orderNum=rest.getString("order_number");
 				String  createtime=simpleDateFormat.format(new Date(Long.parseLong(String.valueOf(rest.getString("create_time")))));
 				String productSQL="select order_group.*,goods.name,goods.price from order_group left join goods on order_group.good_Id=goods.id where order_num='"+rest.getString("order_number")+"'";
-			      System.out.println("======+++"+productSQL);
 				presta=conn.prepareStatement(productSQL);
 				re=presta.executeQuery();
 				List<Product> products=new ArrayList<Product>();
@@ -242,6 +241,44 @@ public class OrderDaoImpl implements OrderDao{
 		}
 	   
 		return flag;
+	}
+
+	@Override
+	public boolean updateStatus(String orderID, int status) {
+		 Connection conn=null;
+		    Statement steme=null;
+		    String  sql="update orders set status="+status+" where order_number='"+orderID+"';";;
+		    conn=DbResourceManager.getConnection();
+		    boolean flag=false;
+		    try {
+				steme=conn.createStatement();
+				int sts=steme.executeUpdate(sql);
+				if(sts>0)flag=true;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				
+					try {
+						if (steme!=null) {
+						   steme.close();
+						}
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					try {
+						if (conn!=null) {
+						   conn.close();
+						}
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				
+			}
+		   
+			return flag;
 	}
 
 	

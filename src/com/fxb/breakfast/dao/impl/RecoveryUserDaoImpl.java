@@ -96,7 +96,7 @@ public class RecoveryUserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public boolean updateMoney(int userId, float prices) {
+	public boolean updateMoney(int userId, float prices,int type) {
 		// TODO Auto-generated method stub
 		return false;
 	}

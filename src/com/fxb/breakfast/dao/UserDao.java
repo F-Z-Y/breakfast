@@ -25,5 +25,5 @@ public interface UserDao{
 	public PageBean findByPage(QueryBean queryBean, int page, int size);
 	public boolean updateInfo(int userId,String name,String username,String phone,String address);
 	public int insertInfo(String name,String username,String phone,String address);
-	public boolean updateMoney(int userId,float prices);
+	public boolean updateMoney(int userId,float prices,int type);
 }

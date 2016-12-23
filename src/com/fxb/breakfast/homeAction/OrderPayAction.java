@@ -32,8 +32,8 @@ public class OrderPayAction implements Action{
 			ri.code=1;
 			ri.msg="余额不足，请充值！！！";
 		}else{
-			boolean flag=new OrderDaoImpl().updatePay(orderID, prices);
-			boolean fg=new UserDaoImpl().updateMoney((int)seession.getAttribute("userId"), prices);
+			boolean flag=new OrderDaoImpl().updatePay(orderID, prices,0);
+			boolean fg=new UserDaoImpl().updateMoney((int)seession.getAttribute("userId"), prices,0);
 			if(flag&&fg){
 				ri.code=0;
 				ri.msg="支付成功！！！";
