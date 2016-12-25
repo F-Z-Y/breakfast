@@ -27,7 +27,7 @@ public class OrderDaoImpl implements OrderDao{
 		PreparedStatement presta=null;
 		ResultSet rest=null;
 		Connection conn=null;
-		String sql="select o.*,u.name as user_name,g.name as good_name,l.account from orders as o INNER JOIN user as u on o.user_id=u.id INNER JOIN goods as g on o.goods_id=g.id INNER JOIN login as l on l.relation_id=u.id where l.type=3;";
+		String sql="select o.*,u.name as user_name,s.name as good_name,l.account from orders as o INNER JOIN user as u on o.user_id=u.id INNER JOIN seller as s on o.seller_id=s.id INNER JOIN login as l on l.relation_id=u.id where l.type=3;";
 		try {
 			conn=DbResourceManager.getConnection();
 			presta=conn.prepareStatement(sql);
@@ -35,7 +35,7 @@ public class OrderDaoImpl implements OrderDao{
 			while(rest.next()){
 				int order_id=rest.getInt("id");
 				int user_id=rest.getInt("user_id");
-				int good_id=rest.getInt("goods_id");
+				int seller_id=rest.getInt("seller_id");
 				String phone=rest.getString("phone");	
 				float money=rest.getFloat("money");
 				int num=rest.getInt("num");
@@ -44,7 +44,7 @@ public class OrderDaoImpl implements OrderDao{
 				String account=rest.getString("account");
 				int status = rest.getInt("status");
 				String orderNum = rest.getString("order_number");
-				orders.add(new Order(order_id,user_id,good_id,status,num,money,user_name,good_name,account,phone,orderNum));
+				orders.add(new Order(order_id,user_id,seller_id,status,num,money,user_name,good_name,account,phone,orderNum));
 			}
 
 		} catch (SQLException e) {
