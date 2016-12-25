@@ -114,4 +114,42 @@ public class ProductDaoImpl implements ProductDao{
 		return products;
 	}
 
+	@Override
+	public int findId(int productId) {
+		PreparedStatement presta=null;
+		ResultSet rest=null;
+		Connection conn=null;
+		int id=0;
+		String sql="select seller_id from goods where id="+productId;
+		try {
+			conn=DbResourceManager.getConnection();
+			presta=conn.prepareStatement(sql);
+			rest=presta.executeQuery();
+			while(rest.next()){
+				id=rest.getInt("seller_id");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+
+			try {
+				if(rest!=null){
+					rest.close();
+				}
+				if(presta!=null){
+					presta.close();
+				}
+				if(conn!=null){
+					conn.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+		}
+		return id;
+		
+	}
+    
 }

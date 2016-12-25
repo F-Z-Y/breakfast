@@ -7,9 +7,7 @@
 <rapid:override name="css">
 <link href="<%=request.getContextPath()%>/css/home/product.css"  rel="stylesheet" /> 
 </rapid:override>
-<% Cookie co=new Cookie("name","fanxiaobing"); 
-    response.addCookie(co);
-%>
+
 <rapid:override name="main-content">
             <div class="widget flat radius-bordered">
               <div class="widget-header bg-themeprimary">
@@ -19,18 +17,7 @@
               <div class="widget-body">
                   <div class="widget-main ">
                       <div class="tabbable">
-                          <ul class="nav nav-tabs tabs-flat" id="myTab11">
-                              <li class="active">
-                                  <a data-toggle="tab" href="#home11">
-                                                                                                                                                                                                      零食
-                                  </a>
-                              </li>
-                              <li class="">
-                                  <a data-toggle="tab" href="#profile11">
-                                                                                                                                                                                                 饮料
-                                  </a>
-                              </li>
-                          </ul>
+                         
                           <div class="tab-content tabs-flat">
                               <div id="home11" class="tab-pane active">
                               <c:forEach items="${productList}" var="c" varStatus="status">
@@ -62,9 +49,6 @@
                                   </c:if>
                               </div>
 
-                              <div id="profile11" class="tab-pane">
-                                  <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
-                              </div>
                           </div>
                       </div>
                   </div>

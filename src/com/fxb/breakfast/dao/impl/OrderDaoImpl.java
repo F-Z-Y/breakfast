@@ -87,7 +87,7 @@ public class OrderDaoImpl implements OrderDao{
 		boolean flag=false;
 		PreparedStatement presta=null;
 		Connection conn=null;
-		String sql="insert into orders (order_number,user_id,goods_id,num,money,name,phone,address,status,create_time) values('"+orderID+"',"+userId+","+goodId+","+num+","+money+",'"+name+"','"+phone+"','"+address+"',"+status+",'"+time+"')";
+		String sql="insert into orders (order_number,user_id,seller_id,num,money,name,phone,address,status,create_time) values('"+orderID+"',"+userId+","+goodId+","+num+","+money+",'"+name+"','"+phone+"','"+address+"',"+status+",'"+time+"')";
 		conn=DbResourceManager.getConnection();
 		try {
 			presta=conn.prepareStatement(sql);
@@ -161,7 +161,8 @@ public class OrderDaoImpl implements OrderDao{
 		ResultSet rest=null;
 		ResultSet re=null;
 		Connection conn=null;
-		String sql="select orders.*,goods.name from orders left join goods on orders.goods_id=goods.id where user_id="+userId;
+		String sql="select orders.*,goods.name from orders left join order_group on orders.order_number=order_group.order_num left join goods on order_group.good_Id=goods.id  where user_id="+userId;
+		System.out.println(">>>>"+sql);
 		try {
 			conn=DbResourceManager.getConnection();
 			presta=conn.prepareStatement(sql);

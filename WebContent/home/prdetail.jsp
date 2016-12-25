@@ -43,7 +43,6 @@
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
                                     <div class="c-but">
-					                    <span class="pointer" id="buy-now" dataname="${GoodInfo.name}" dataprice="${GoodInfo.price}" dataid="${GoodInfo.id}">立即购买</span>
 					                    <span class="pointer addcar" dataname="${GoodInfo.name}" dataprice="${GoodInfo.price}" dataid="${GoodInfo.id}">加入购物车</span>
 					                </div>
                                 </div>
@@ -72,7 +71,7 @@
 		  </div>
 		  <div class="car-footer">
 		    <div id="car-icon"><i id="end"></i>共<span id="money">0.00</span>元</div>
-		    <a href="{:url('cart/index?type=step1')}" id="go"><div class="go">去结算</div></a>
+		    <a href="order.do" id="go"><div class="go">去结算</div></a>
 		  </div>
 		</div>
 <!-- 购物车end -->

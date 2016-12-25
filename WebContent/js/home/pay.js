@@ -1,5 +1,5 @@
 	$(function(){
-	 $("#pay").click(function(data){
+	 $("#payOrder").click(function(data){
 		var price=$(this).attr("price");
 		console.log(price);
 		var orderID=$('#orderID').html();

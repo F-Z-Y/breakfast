@@ -9,7 +9,7 @@ public class Order {
 	private int status;
 	private int num;
 	private float money;
-	private List<Product> products;
+	public List<Product> products;
 	private String userName;
 	private String goodName;
 	private String acconut;

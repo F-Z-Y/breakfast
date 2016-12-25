@@ -23,4 +23,5 @@ public interface ProductDao{
 	 */
 	public PageBean findByPage(QueryBean queryBean, int page, int size);
 	public List<Product> getIDAll(int shopId);
+	public int findId(int productId);
 }

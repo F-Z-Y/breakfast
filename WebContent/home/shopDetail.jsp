@@ -12,7 +12,7 @@
       
        <div class="widget">
                 <div class="widget-header bordered-bottom bordered-palegreen">
-                    <span class="widget-caption"><a href="">返回</a></span>
+                    <span class="widget-caption"><a href="<%=request.getHeader("Referer")%> ">返回</a></span>
                 </div>
                 <div class="widget-body">
                     <div>
@@ -40,7 +40,6 @@
                             </div>
                             <div class="form-group">
                                <label for="inputEmail3" class="col-sm-2 control-label no-padding-right">上架商品：</label>
-                                <label class="col-sm-2 control-label no-padding-right">10个</label>
                             </div>
                             <div class="form-group">
                                  <div class="widget-body">
@@ -95,7 +94,7 @@
 		  </div>
 		  <div class="car-footer">
 		    <div id="car-icon"><i id="end"></i>共<span id="money">0.00</span>元</div>
-		    <a href="{:url('cart/index?type=step1')}" id="go"><div class="go">去结算</div></a>
+		    <a href="order.do" id="go"><div class="go">去结算</div></a>
 		  </div>
 		</div>
 <!-- 购物车end -->

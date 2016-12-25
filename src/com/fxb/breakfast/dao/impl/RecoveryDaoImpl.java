@@ -77,4 +77,10 @@ public class RecoveryDaoImpl implements ProductDao{
 		return null;
 	}
 
+	@Override
+	public int findId(int productId) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

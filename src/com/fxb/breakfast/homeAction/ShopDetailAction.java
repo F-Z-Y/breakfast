@@ -19,6 +19,8 @@ public class ShopDetailAction implements Action{
 	@Override
 	public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String path=req.getRequestURI();
+		System.out.println("==!==="+path);
 		int id=Integer.valueOf(req.getParameter("id"));
 		SellerInfo sellerInfo=new SellerInfoDaoImpl().getInfo(id);
 		req.setAttribute("shopDetail",sellerInfo);
