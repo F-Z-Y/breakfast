@@ -22,5 +22,9 @@ public interface OrderDao{
 	 * @return 当前页的业务实体对象的列表容器
 	 */
 	public PageBean findByPage(QueryBean queryBean, int page, int size);
-	
+	public boolean insertOrder(String orderID,int userId,int goodId,int num,float money,String name,String phone,String address,int status,String time);
+    public boolean updatePay(String orderID,float money,int status);
+    public List<Order> findUserId(int userId);
+    public boolean insertPdt(int good_id,String orderNum,int num ,float price);
+    public boolean updateStatus(String orderID,int status);
 }

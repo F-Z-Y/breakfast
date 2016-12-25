@@ -9,18 +9,18 @@ import com.fxb.breakfast.model.Transaction;
 
 public interface TransactionDao{
 	/**
-	 * 锟斤拷询锟斤拷锟叫的诧拷品
+	 * 閿熸枻鎷疯閿熸枻鎷烽敓鍙殑璇ф嫹鍝�
 	 */
 	public List<Transaction> getAll(int type);
 	public PageBean findByPage(int page, int size);
 
 	/**
-	 * 锟斤拷页锟斤拷锟斤拷业锟斤拷实锟斤拷锟斤拷锟�
-	 * @param queryBean 锟斤拷询锟斤拷锟斤拷锟斤拷锟斤拷
-	 * @param page 页锟斤拷
-	 * @param size 页锟斤拷锟叫�
-	 * @return 锟斤拷前页锟斤拷业锟斤拷实锟斤拷锟斤拷锟斤拷锟叫憋拷锟斤拷锟斤拷
+	 * 閿熸枻鎷烽〉閿熸枻鎷烽敓鏂ゆ嫹涓氶敓鏂ゆ嫹瀹為敓鏂ゆ嫹閿熸枻鎷烽敓锟�
+	 * @param queryBean 閿熸枻鎷疯閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹
+	 * @param page 椤甸敓鏂ゆ嫹
+	 * @param size 椤甸敓鏂ゆ嫹閿熷彨锟�
+	 * @return 閿熸枻鎷峰墠椤甸敓鏂ゆ嫹涓氶敓鏂ゆ嫹瀹為敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熷彨鎲嬫嫹閿熸枻鎷烽敓鏂ゆ嫹
 	 */
 	public PageBean findByPage(QueryBean queryBean, int page, int size);
-	
+	public boolean insert(float money,int type,int status,int relationId,long time);
 }

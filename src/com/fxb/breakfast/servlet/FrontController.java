@@ -42,6 +42,7 @@ public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private static final String DEFAULT_PACKAGE_NAME = "com.fxb.breakfast.action.";
+	private static final String DEFAULT_PACKAGE_HOME="com.fxb.breakfast.homeAction.";
 	private static final String DEFAULT_JSP_PATH = "";
 	private static final String DEFAULT_ACTION_NAME = "Action";
 	private String packagePrefix = null;		// 包名的前缀
@@ -61,6 +62,7 @@ public class FrontController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		resp.setCharacterEncoding("UTF-8");
 		String contextPath = req.getContextPath() + "/";
 		String servletPath = req.getServletPath();
 		System.out.println("========>>>"+servletPath);
@@ -94,11 +96,10 @@ public class FrontController extends HttpServlet {
 					resp.sendRedirect(contextPath + resultContent.getUrl());
 					break;
 				case Forward:
-					System.out.println("============" + resultContent.getUrl());
+					System.out.println("====="+resultContent.getUrl());
 					req.getRequestDispatcher(resultContent.getUrl()).forward(req, resp);
 					break;
 				case Ajax:
-				
 					PrintWriter pw = resp.getWriter();
 					pw.println(resultContent.getJson());
 					pw.close();
@@ -123,7 +124,9 @@ public class FrontController extends HttpServlet {
 	private String getFullActionName(String servletPath) {
 		int start = servletPath.lastIndexOf("/") + 1;
 		int end = servletPath.lastIndexOf(".do");
-		System.out.println("+=========《《《《《"+ getSubPackage(servletPath));
+        if(getSubPackage(servletPath).equals("home.")){
+        	return DEFAULT_PACKAGE_HOME  + CommonUtil.capitalize(servletPath.substring(start, end)) + actionSuffix;
+		}
 		return packagePrefix  + CommonUtil.capitalize(servletPath.substring(start, end)) + actionSuffix;
 	}
 	

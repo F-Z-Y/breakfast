@@ -22,5 +22,5 @@ public interface ProductDao{
 	 * @return 当前页的业务实体对象的列表容器
 	 */
 	public PageBean findByPage(QueryBean queryBean, int page, int size);
-	
+	public List<Product> getIDAll(int shopId);
 }

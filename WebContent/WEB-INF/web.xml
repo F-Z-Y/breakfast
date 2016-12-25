@@ -116,4 +116,12 @@
     <servlet-name>Delete</servlet-name>
     <url-pattern>/delete_good</url-pattern>
   </servlet-mapping>
+  <filter>
+     <filter-name>loginFilter</filter-name>
+     <filter-class>com.fxb.breakfast.filter.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+     <filter-name>loginFilter</filter-name>
+     <url-pattern>/home/order.do</url-pattern>
+  </filter-mapping>
 </web-app>

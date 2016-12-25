@@ -71,4 +71,47 @@ public class ProductDaoImpl implements ProductDao{
 		return null;
 	}
 
+	@Override
+	public List<Product> getIDAll(int shopId) {
+		List<Product> products=new ArrayList<Product>();
+		PreparedStatement presta=null;
+		ResultSet rest=null;
+		Connection conn=null;
+		String sql="select g.id,g.name,s.id as seller_id,s.name as seller_name,g.price,g.volume from  goods as g,seller as s where g.seller_id="+shopId+" and g.seller_id=s.id  and g.status=0; ";
+		try {
+			conn=DbResourceManager.getConnection();
+			presta=conn.prepareStatement(sql);
+			rest=presta.executeQuery();
+			while(rest.next()){
+				int id=rest.getInt("id");
+				int sellerId=rest.getInt("seller_id");
+				String productName=rest.getString("name");	
+				float price=rest.getFloat("price");
+				int mark=rest.getInt("volume");
+				String sellerName=rest.getString("seller_name");
+				products.add(new Product(id, productName, price, mark,sellerId,sellerName));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+
+			try {
+				if(rest!=null){
+					rest.close();
+				}
+				if(presta!=null){
+					presta.close();
+				}
+				if(conn!=null){
+					conn.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
+		}
+		return products;
+	}
+
 }
