@@ -8,18 +8,18 @@
 
 </rapid:override>
 <rapid:override name="page-title">
-	<li><i class="fa fa-home"></i> <a href="#">商品</a></li>
-	<li class="active">商品管理</li>
+	<li><i class="fa fa-home"></i> <a href="#">商铺</a></li>
+	<li class="active">商铺管理</li>
 </rapid:override>
 
 <rapid:override name="header-title">
- 商品管理
+ 商铺管理
 </rapid:override>
 
 <rapid:override name="content">
 	<div class="col-xs-12 col-md-12">
 		<div class="well with-header">
-			<div class="header bg-blue">商品详情</div>
+			<div class="header bg-blue">商铺详情</div>
 			<%
 				SellerInfo info = (SellerInfo) request.getAttribute("sellerInfo");
 			%>

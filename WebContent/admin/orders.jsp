@@ -34,7 +34,7 @@
 						<th>订单号</th>
 						<th>用户账号</th>
 						<th>用户真名</th>
-						<th>商品名</th>
+						<th>店铺名</th>
 						<th>购买数量</th>
 						<th>实付金额</th>
 						<th>状态</th>
@@ -50,7 +50,7 @@
 						<td><%=listn.get(i).getOrderNum() %></td>
 						<td><%=listn.get(i).getAcconut() %></td>
 						<td><%=listn.get(i).getUserName() %></td>
-						<td><a v_id="<%=listn.get(i).getGoodId()%>" class="good_info_a" ><%=listn.get(i).getGoodName() %></a></td>
+						<td><a v_id="<%=listn.get(i).getsellerId()%>" class="seller_info_a" ><%=listn.get(i).getGoodName() %></a></td>
 						<td><%=listn.get(i).getNum() %></td>
 						<td><%=listn.get(i).getMoney() %></td>
 						<td><%=listn.get(i).getStatusInfo() %></td>
@@ -77,9 +77,9 @@
 	<script src="<%=request.getContextPath()%>/assets/js/bootbox/bootbox.js"></script>
 	<script>
 		$(function() {
-			$(".good_info_a").click(function(){
+			$(".seller_info_a").click(function(){
 				var obj_id = $(this).attr('v_id');
-				var url = "<%=request.getContextPath()%>/admin/goodinfo.do?good_info="+obj_id;
+				var url = "<%=request.getContextPath()%>/admin/sellerinfo.do?seller_info="+obj_id;
 				window.open(url);
 			})
 			$("#editabledatatable").dataTable({

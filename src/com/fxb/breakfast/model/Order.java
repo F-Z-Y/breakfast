@@ -5,7 +5,7 @@ import java.util.List;
 public class Order {
 	private int id;
 	private int userId;
-	private int goodId;
+	private int sellerId;
 	private int status;
 	private int num;
 	private float money;
@@ -17,11 +17,11 @@ public class Order {
 	private String statusInfo;
 	private String orderNum;
 	private String createtime;
-	public Order(int id, int userId, int goodId, int status,int num,float money,String userName, String goodName, String account,String phone,String orderNum) {
+	public Order(int id, int userId, int sellerId, int status,int num,float money,String userName, String goodName, String account,String phone,String orderNum) {
 		super();
 		this.setId(id);
 		this.setUserId(userId);
-		this.setGoodId(goodId);
+		this.setsellerId(sellerId);
 		this.setStatus(status);
 		this.setNum(num);
 		this.setMoney(money);
@@ -54,13 +54,13 @@ public class Order {
 	}
 
 
-	public int getGoodId() {
-		return goodId;
+	public int getsellerId() {
+		return sellerId;
 	}
 
 
-	public void setGoodId(int goodId) {
-		this.goodId = goodId;
+	public void setsellerId(int sellerId) {
+		this.sellerId = sellerId;
 	}
 
 
